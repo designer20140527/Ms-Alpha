@@ -1,0 +1,955 @@
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Poppins:wght@400;500;600&display=swap');
+
+:root {
+    --primary-color: #1a1a1a;
+    --background-color: #C2B4A3;
+    --text-color: #1a1a1a;
+    --button-red: #E31E26;
+    --button-blue: #1E2329;
+    --max-width: 1300px;
+    --gradient-1: linear-gradient(45deg, #B06D90, #83796C);
+    --gradient-2: linear-gradient(45deg, #214295, #1E2329);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    scroll-behavior: smooth;
+}
+
+.nav-container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav {
+    background: #83796C;
+    padding: 0.8rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    transition: color 0.3s;
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+nav a:hover {
+    color: var(--text-color);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo {
+    height: 50px;
+    width: auto;
+}
+
+.logo-text {
+    font-family: 'Lilita One', cursive;
+    font-size: 28px;
+    color: white;
+    text-shadow: 2px 2px 0px black;
+    -webkit-text-stroke: none;
+    text-transform: uppercase;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Lilita One', cursive;
+    text-transform: uppercase;
+}
+
+h1, .section-title {
+    font-family: 'Lilita One', cursive;
+    color: white;
+    text-shadow: 4px 4px 0px black;
+    -webkit-text-stroke: none;
+}
+
+h1 {
+    font-size: 5.5rem;
+    line-height: 1;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+}
+
+.hero-subtitle {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    font-family: 'Poppins', sans-serif;
+    color: var(--primary-color);
+    font-weight: 500;
+    background: linear-gradient(45deg, #1a1a1a, #4a4a4a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.btn {
+    font-family: 'Poppins', sans-serif;
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-right: 1rem;
+    transition: transform 0.3s;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
+    z-index: -1;
+    transition: transform 0.6s;
+    transform: scaleX(0);
+    transform-origin: right;
+}
+
+.btn:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.primary {
+    background: var(--gradient-1);
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 0.8rem 1.5rem;
+    box-shadow: 0 4px 15px rgba(176, 109, 144, 0.3);
+}
+
+.primary i {
+    display: none;
+}
+
+.secondary {
+    background: var(--gradient-2);
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 0.8rem 1.5rem;
+    box-shadow: 0 4px 15px rgba(33, 66, 149, 0.3);
+}
+
+.marquee {
+    background: var(--background-color);
+    border-top: 2px solid #83796C;
+    border-bottom: 2px solid #83796C;
+    padding: 1rem 0;
+    margin-top: -4rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.marquee-track {
+    display: flex;
+}
+
+.marquee-content {
+    display: flex;
+    gap: 4rem;
+    padding: 0 2rem;
+    animation: scroll 20s linear infinite;
+    white-space: nowrap;
+}
+
+.marquee-content a,
+.marquee-content img {
+    display: block;
+}
+
+.marquee-content img {
+    height: 45px;
+    width: auto;
+    transition: opacity 0.3s;
+}
+
+.marquee-content a:hover img {
+    opacity: 0.8;
+}
+
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-33.333% - 2rem)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .marquee-content {
+        animation-play-state: paused;
+    }
+}
+
+#hero {
+    max-width: var(--max-width);
+    margin: 80px auto 0;
+    padding: 4rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 70vh;
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero-image {
+    flex: 1;
+    max-width: 500px;
+    filter: none;
+    animation: fadeInUp 1s ease-out;
+    transition: transform 0.3s ease;
+}
+
+.hero-image:hover {
+    transform: translateY(-10px);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-content h1 {
+    margin-bottom: 1.5rem;
+    text-align: left;
+    position: relative;
+}
+
+.hero-content h1::after {
+    display: none;
+}
+
+.hero-subtitle {
+    text-align: left;
+    margin-bottom: 2.5rem;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-color);
+    max-width: 90%;
+    margin-bottom: 2rem;
+}
+
+.section {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 6rem 2rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease;
+}
+
+.section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.section-title {
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
+}
+
+.tokenomics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.tokenomics-item {
+    text-align: center;
+    padding: 2.5rem;
+    background: rgba(255,255,255,0.15);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.tokenomics-item:hover {
+    transform: translateY(-5px);
+    background: rgba(255,255,255,0.2);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.tokenomics-item::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent,
+        rgba(255,255,255,0.1),
+        transparent
+    );
+    transform: rotate(45deg);
+    transition: all 0.6s ease;
+    opacity: 0;
+}
+
+.tokenomics-item:hover::after {
+    opacity: 1;
+    transform: rotate(45deg) translate(50%, 50%);
+}
+
+.tokenomics-item h5 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.tokenomics-item p {
+    font-size: 1.8rem;
+    font-family: 'Lilita One', cursive;
+    color: white;
+    text-shadow: 2px 2px 0px black;
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.step-item {
+    text-align: center;
+    padding: 2rem;
+    background: rgba(255,255,255,0.15);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.step-item:hover {
+    transform: translateY(-5px);
+    background: rgba(255,255,255,0.2);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.step-icon-container {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+}
+
+.step-icon {
+    width: 100%;
+    height: 100%;
+    color: var(--primary-color);
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.step-item:hover .step-icon {
+    color: white;
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.step-number {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 30px;
+    height: 30px;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Lilita One', cursive;
+    font-size: 1.2rem;
+}
+
+.step-item h5 {
+    font-family: 'Lilita One', cursive;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: white;
+    text-shadow: 2px 2px 0px black;
+}
+
+.step-item p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+/* FAQ 样式 */
+.faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background: rgba(255,255,255,0.15);
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.faq-question {
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.faq-question:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+.faq-question h3 {
+    margin: 0;
+    font-size: 1.3rem;
+    color: white;
+    text-shadow: 2px 2px 0px black;
+}
+
+.toggle-icon {
+    font-family: 'Lilita One', cursive;
+    font-size: 1.5rem;
+    transition: transform 0.3s;
+}
+
+.faq-answer {
+    padding: 0 2rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease-out;
+}
+
+.faq-item.active .faq-answer {
+    padding: 0 2rem 1.5rem;
+    max-height: 500px;
+}
+
+.faq-item.active .toggle-icon {
+    transform: rotate(45deg);
+}
+
+.roadmap-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 4rem;
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.roadmap-phases {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.roadmap-image {
+    flex: 1;
+    position: sticky;
+    top: 100px;
+}
+
+.roadmap-image img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 12px;
+    animation: fadeInUp 1s ease-out;
+    transition: transform 0.3s ease;
+}
+
+.roadmap-image:hover img {
+    transform: translateY(-10px);
+}
+
+.phase {
+    background: rgba(255,255,255,0.15);
+    padding: 2.5rem;
+    border-radius: 12px;
+    margin: 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.phase:hover {
+    transform: translateY(-5px);
+    background: rgba(255,255,255,0.2);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.phase-header {
+    margin-bottom: 2rem;
+}
+
+.phase-number {
+    display: block;
+    font-family: 'Lilita One', cursive;
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.phase h3 {
+    font-family: 'Lilita One', cursive;
+    font-size: 2.5rem;
+    color: white;
+    text-shadow: 2px 2px 0px black;
+    line-height: 1.2;
+}
+
+.phase ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.phase li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.phase li:last-child {
+    margin-bottom: 0;
+}
+
+.phase li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* 修改FAQ标题样式 */
+#faq .section-title {
+    text-align: center;
+}
+
+/* 调整X logo样式 */
+.x-logo {
+    width: 1em;
+    height: 1em;
+    margin-right: 0.5rem;
+}
+
+/* 添加 Telegram logo 样式 */
+.telegram-logo {
+    width: 1em;
+    height: 1em;
+    margin-right: 0.5rem;
+}
+
+.marquee-content {
+    display: inline-flex;
+}
+
+.marquee-content::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    display: flex;
+    gap: 4rem;
+    padding: 0 2rem;
+    white-space: nowrap;
+}
+
+.marquee-content::after {
+    content: "";
+    display: flex;
+    align-items: center;
+}
+
+.marquee-content {
+    min-width: max-content;
+}
+
+/* 添加旋转动画 */
+.spinning {
+    animation: spin 4s linear infinite;
+    transform-origin: center;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotateY(0deg);
+    }
+    100% {
+        transform: rotateY(360deg);
+    }
+}
+
+/* 可选：当鼠标悬停时暂停动画 */
+.spinning:hover {
+    animation-play-state: paused;
+}
+
+/* About section 样式 */
+.about-container {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    margin: 0 -2rem;
+    padding: 0 2rem;
+}
+
+.about-image {
+    flex: 1;
+    max-width: 600px;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    transform: scale(1.1);
+    animation: fadeInUp 1s ease-out;
+    transition: transform 0.3s ease;
+}
+
+.about-image:hover img {
+    transform: translateY(-10px);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.about-content {
+    flex: 1;
+}
+
+.about-content .section-title {
+    text-align: left;
+    margin-bottom: 2rem;
+}
+
+.about-content p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.about-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* 确保section的padding合适 */
+#about.section {
+    padding: 6rem 2rem;
+}
+
+/* 修改 Tokenomics 标题和文字对齐 */
+#tokenomics .section-title {
+    text-align: center;
+}
+
+#tokenomics > p {  /* 底部文字 */
+    text-align: center;
+    max-width: 800px;
+    margin: 2rem auto;
+    font-size: 1.1rem;
+}
+
+/* HOW TO BUY 样式更新 */
+#how-to-buy .section-title {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+/* 添加 footer 样式 */
+footer {
+    background: #83796C;  /* 与 header 背景色一致 */
+    padding: 1.5rem 0;
+    margin-top: 4rem;
+}
+
+.footer-container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+    text-align: center;
+}
+
+footer p {
+    color: white;
+    font-size: 0.9rem;
+    margin: 0;
+    opacity: 0.9;
+}
+
+/* 响应式布局样式 */
+@media (max-width: 1024px) {
+    /* iPad 布局 */
+    h1 {
+        font-size: 4rem;
+    }
+
+    .section-title {
+        font-size: 3rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.5rem;
+    }
+
+    .about-container, .roadmap-container {
+        flex-direction: column;
+        gap: 3rem;
+    }
+
+    .about-image, .roadmap-image {
+        max-width: 100%;
+        order: -1;  /* 图片放在上面 */
+    }
+
+    .about-content, .roadmap-phases {
+        max-width: 100%;
+    }
+
+    .steps-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    .tokenomics-grid {
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    /* 手机布局 */
+    nav ul {
+        display: none;  /* 在小屏幕上隐藏导航菜单 */
+    }
+
+    /* 添加汉堡菜单按钮 */
+    .menu-toggle {
+        display: block;
+        font-size: 1.5rem;
+        color: white;
+        cursor: pointer;
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    .section-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+
+    #hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem 1rem;
+    }
+
+    .hero-content {
+        order: -1;  /* 文字内容放在上面 */
+    }
+
+    .cta-buttons {
+        justify-content: center;
+    }
+
+    .tokenomics-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .steps-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .phase h3 {
+        font-size: 2rem;
+    }
+
+    .marquee-content {
+        gap: 2rem;
+    }
+
+    .section {
+        padding: 4rem 1rem;
+    }
+
+    .about-container, .roadmap-container {
+        margin: 0;
+        padding: 0;
+    }
+
+    .about-image img, .roadmap-image img {
+        transform: scale(1);
+    }
+}
+
+/* 添加移动端导航菜单 */
+.mobile-nav {
+    display: none;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background: #83796C;
+    padding: 1rem;
+    z-index: 999;
+}
+
+.mobile-nav.active {
+    display: block;
+}
+
+.mobile-nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.mobile-nav li {
+    margin: 1rem 0;
+    text-align: center;
+}
+
+.mobile-nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    display: block;
+    padding: 0.5rem;
+}
+
+/* 优化图片在移动端的显示 */
+@media (max-width: 480px) {
+    .hero-image, .about-image img, .roadmap-image img {
+        width: 90%;
+        margin: 0 auto;
+        display: block;
+    }
+
+    .marquee-content img {
+        height: 35px;
+    }
+
+    .btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.8rem;
+    }
+
+    .logo {
+        height: 40px;
+    }
+
+    .logo-text {
+        font-size: 24px;
+    }
+}
+
+/* 添加平板端的优化 */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .about-container, .roadmap-container {
+        gap: 3rem;
+        align-items: center;
+    }
+
+    .about-image, .roadmap-image {
+        max-width: 80%;
+        margin: 0 auto;
+    }
+
+    .tokenomics-grid {
+        gap: 2rem;
+    }
+
+    .steps-grid {
+        gap: 2rem;
+    }
+} 
